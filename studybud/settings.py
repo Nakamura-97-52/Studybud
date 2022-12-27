@@ -81,14 +81,26 @@ WSGI_APPLICATION = 'studybud.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dfopq3cpsfukg4',
+        'USER': 'qwhzjguomgigki',
+        'PASSWORD': '7e1fae4b8f15939959e1de0a11addec9cc0a23592c8549199157e43769894ba9',
+        'HOST': 'ec2-54-160-109-68.compute-1.amazonaws.com',
+        'PORT':'5432',
     }
 }
 
-dj_from_env = dj_database_url.config()
+dj_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default']
 
 
 # Password validation
